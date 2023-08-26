@@ -17,4 +17,19 @@ export class ClienteController {
     const clienteById: ICliente | null = await ClientService.getClientById(id);
     return clienteById;
   }
+
+  static async updateCli(
+    id: string,
+    clienteDTO: ICliente
+  ): Promise<ICliente | null | undefined> {
+    const cliUpdated: ICliente | null | undefined =
+      await ClientService.updateClient(id, clienteDTO);
+    return cliUpdated;
+  }
+
+  static async deleteCli(id: string): Promise<ICliente | null | undefined> {
+    const CliDeleted: ICliente | null | undefined =
+      await ClientService.deleteClient(id);
+    return CliDeleted;
+  }
 }

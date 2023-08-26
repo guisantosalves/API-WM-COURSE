@@ -34,12 +34,31 @@ ClienteRouter.post("/cliente", async (req: Request, res: Response) => {
   }
 });
 
-ClienteRouter.put("/cliente", (req, res) => {
-  res.send("cliente router put");
+ClienteRouter.put("/cliente/:id", async (req: Request, res: Response) => {
+  const idToUpdate = req.params.id;
+  const clienteDTO: ICliente = req.body;
+
+  const updatedCliente = await ClienteController.updateCli(
+    idToUpdate,
+    clienteDTO
+  );
+
+  if (updatedCliente) {
+    res.status(200).send(updatedCliente);
+  } else {
+    res.sendStatus(400);
+  }
 });
 
-ClienteRouter.delete("/cliente", (req, res) => {
-  res.send("cliente router delete");
+ClienteRouter.delete("/cliente/:id", async (req: Request, res: Response) => {
+  const idToUpdate = req.params.id;
+  const deletedClient = await ClienteController.deleteCli(idToUpdate);
+
+  if (deletedClient) {
+    res.status(200).send(deletedClient);
+  } else {
+    res.status(400);
+  }
 });
 
 export default ClienteRouter;

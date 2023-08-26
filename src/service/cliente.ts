@@ -42,4 +42,39 @@ export class ClientService {
       return null;
     }
   }
+
+  static async updateClient(
+    id: string,
+    clienteDTO: ICliente
+  ): Promise<ICliente | null | undefined> {
+    try {
+      // updating
+      const client = await Cliente.findByIdAndUpdate(id, clienteDTO);
+      if (client) {
+        // getting updated data
+        const updatedClient = await Cliente.findById(id);
+        return updatedClient;
+      } else {
+        return undefined;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  static async deleteClient(id: string): Promise<ICliente | null | undefined> {
+    try {
+      /**
+        This function differs slightly from Model.findOneAndRemove() 
+        in that findOneAndRemove() becomes a MongoDB findAndModify() command, 
+        as opposed to a findOneAndDelete() command. 
+        For most mongoose use cases, this distinction is purely pedantic. 
+        You should use findOneAndDelete() unless you have a good reason not to.
+       */
+      const clientDeleted = await Cliente.findOneAndDelete({ _id: id });
+      return clientDeleted;
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
