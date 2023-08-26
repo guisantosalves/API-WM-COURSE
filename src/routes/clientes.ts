@@ -3,12 +3,12 @@ import express from "express";
 const ClienteRouter = express.Router();
 
 ClienteRouter.get("/cliente", (req, res) => {
-  res.send("cliente router get");
+  res.status(200).json({message: "exemple"});
 });
 
 ClienteRouter.post("/cliente", (req, res) => {
-//   const body = req.body;
-//   console.log(body);
+  //   const body = req.body;
+  //   console.log(body);
   res.send("cliente router post");
 });
 
