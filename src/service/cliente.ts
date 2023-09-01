@@ -1,4 +1,5 @@
 import Cliente, { ICliente } from "../model/cliente";
+import bcrypt from "bcrypt";
 
 export class ClientService {
   static async getAllClient(): Promise<ICliente[] | undefined> {

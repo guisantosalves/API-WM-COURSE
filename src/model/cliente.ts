@@ -3,7 +3,7 @@ mongoose.set("debug", true);
 
 export interface ICliente extends Document {
   nome: string;
-  dataNascimento?: Date;
+  dataNascimento: Date;
   rua: string;
   obs?: string;
   bairro: string;
@@ -12,10 +12,16 @@ export interface ICliente extends Document {
   ativo?: boolean;
 }
 
+/**
+ * The versionKey is a property set on each document when first created by Mongoose.
+ * This keys value contains the internal revision of the document.
+ * The name of this document property is configurable. The default is __v
+ */
+
 const clienteSchema = new mongoose.Schema<ICliente>(
   {
     nome: { type: String, required: true },
-    dataNascimento: { type: Date, default: Date.now },
+    dataNascimento: { type: Date, required: true },
     rua: { type: String, required: true },
     obs: { type: String, required: false },
     bairro: { type: String, required: true },
