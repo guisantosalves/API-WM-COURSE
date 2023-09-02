@@ -51,8 +51,8 @@ ClienteRouter.put("/cliente/:id", async (req: Request, res: Response) => {
 });
 
 ClienteRouter.delete("/cliente/:id", async (req: Request, res: Response) => {
-  const idToUpdate = req.params.id;
-  const deletedClient = await ClienteController.deleteCli(idToUpdate);
+  const idToDelete = req.params.id;
+  const deletedClient = await ClienteController.deleteCli(idToDelete);
 
   if (deletedClient) {
     res.status(200).send(deletedClient);
