@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
-import { FuncionarioController } from "../controller/funcionario";
-import { IFuncionario } from "../model/funcionario";
+import { FuncionarioController } from "../controller/funcionario_controller";
+import { IFuncionario } from "../model/funcionario_model";
 
 const FuncionarioRouter = express.Router();
 

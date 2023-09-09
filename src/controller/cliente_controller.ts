@@ -1,5 +1,5 @@
-import { ICliente } from "../model/cliente";
-import { ClientService } from "../service/cliente";
+import { ICliente } from "../model/cliente_model";
+import { ClientService } from "../service/cliente_service";
 import { Request, Response } from "express";
 
 export class ClienteController {

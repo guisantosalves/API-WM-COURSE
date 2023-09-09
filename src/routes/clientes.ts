@@ -1,6 +1,6 @@
 import express, { Response, Request } from "express";
-import { ClienteController } from "../controller/cliente";
-import { ICliente } from "../model/cliente";
+import { ClienteController } from "../controller/cliente_controller";
+import { ICliente } from "../model/cliente_model";
 const ClienteRouter = express.Router();
 
 ClienteRouter.get("/cliente", async (req: Request, res: Response) => {

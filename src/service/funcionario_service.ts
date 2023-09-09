@@ -1,4 +1,4 @@
-import Funcionario, { IFuncionario } from "../model/funcionario";
+import Funcionario, { IFuncionario } from "../model/funcionario_model";
 import bcrypt from "bcrypt";
 
 export class FuncionarioService {
