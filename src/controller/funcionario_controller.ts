@@ -1,5 +1,5 @@
-import { IFuncionario } from "../model/funcionario";
-import { FuncionarioService } from "../service/funcionario";
+import { IFuncionario } from "../model/funcionario_model";
+import { FuncionarioService } from "../service/funcionario_service";
 
 export class FuncionarioController {
   static async getAllFnc(): Promise<Array<IFuncionario> | undefined> {

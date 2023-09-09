@@ -1,4 +1,4 @@
-import Cliente, { ICliente } from "../model/cliente";
+import Cliente, { ICliente } from "../model/cliente_model";
 import bcrypt from "bcrypt";
 
 export class ClientService {
