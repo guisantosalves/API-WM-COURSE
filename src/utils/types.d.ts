@@ -1,6 +1,6 @@
 export type LoginSchema = {
   email: string;
-  senha: string;
+  senha?: string;
   token?: string;
 };
 
