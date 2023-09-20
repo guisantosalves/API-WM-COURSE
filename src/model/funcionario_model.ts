@@ -15,6 +15,7 @@ export interface IFuncionario extends Document {
   foto?: string;
   ativo?: boolean;
   salario: number;
+  admin?: boolean;
 }
 
 /**
@@ -37,6 +38,7 @@ const funcionarioSchema = new mongoose.Schema<IFuncionario>(
     foto: { type: String, required: false },
     ativo: { type: Boolean, required: false, default: false },
     salario: { type: Number, required: true },
+    admin: { type: Boolean, required: false, default: false },
   },
   { versionKey: false }
 );

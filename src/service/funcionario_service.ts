@@ -31,6 +31,7 @@ export class FuncionarioService {
         foto: funcionarioDTO.foto,
         ativo: funcionarioDTO.ativo,
         salario: funcionarioDTO.salario,
+        admin: funcionarioDTO.admin,
       });
 
       const funcionarioSaved = await funcionarioEntity.save();
@@ -68,7 +69,7 @@ export class FuncionarioService {
         id,
         funcionarioDTO
       );
-      
+
       if (updatingFunc) {
         const updatedFunc = await Funcionario.findById(id);
         return updatedFunc;
