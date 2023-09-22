@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import routes from "./routes";
 import db from "./repository/db";
+import cors from "cors";
 
 //estabelecendo conexão com o mongodb
 db.on("error", () => console.log("error em estabelecer conexão"));
@@ -11,6 +12,9 @@ db.once("open", () => {
 
 // criando uma instância do express
 const app = express();
+
+// cors
+app.use(cors());
 
 // definindo minhas rotas
 routes(app);

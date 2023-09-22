@@ -4,7 +4,7 @@ import { LoginSchema } from "../utils/types";
 
 const loginRouter = express.Router();
 
-loginRouter.get("/login", async (req: Request, res: Response) => {
+loginRouter.post("/login", async (req: Request, res: Response) => {
   const loginDTO: LoginSchema = req.body;
   const logedData = await LoginController.login(loginDTO);
   if (logedData) {
