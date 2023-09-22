@@ -1,4 +1,6 @@
 "use strict";
+<<<<<<< HEAD
+=======
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,11 +10,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+>>>>>>> 760a85ed0700dc2d03ecd448a15240bad5220171
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+<<<<<<< HEAD
+const ClienteRouter = express_1.default.Router();
+ClienteRouter.get("/cliente", (req, res) => {
+    res.send("cliente router get");
+});
+ClienteRouter.post("/cliente", (req, res) => {
+    //   const body = req.body;
+    //   console.log(body);
+    res.send("cliente router post");
+});
+=======
 const cliente_1 = require("../controller/cliente");
 const ClienteRouter = express_1.default.Router();
 ClienteRouter.get("/cliente", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -44,6 +58,7 @@ ClienteRouter.post("/cliente", (req, res) => __awaiter(void 0, void 0, void 0, f
         res.sendStatus(400);
     }
 }));
+>>>>>>> 760a85ed0700dc2d03ecd448a15240bad5220171
 ClienteRouter.put("/cliente", (req, res) => {
     res.send("cliente router put");
 });

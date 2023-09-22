@@ -41,7 +41,7 @@ export class ServicoService {
 
       const serviceMapped = new Servico({
         nome: serviceDTO.nome,
-        descrição: serviceDTO.descrição,
+        descricao: serviceDTO.descricao,
         valor: serviceDTO.valor,
         tempoServico: serviceDTO.tempoServico,
         ativo: serviceDTO.ativo,

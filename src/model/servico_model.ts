@@ -6,7 +6,7 @@ mongoose.set("debug", true);
 
 export interface IServico extends Document {
   nome: string;
-  descrição?: string;
+  descricao?: string;
   valor: number;
   tempoServico?: number;
   ativo: boolean;
@@ -15,16 +15,21 @@ export interface IServico extends Document {
   status: number; // 0 -> agendado / 1 -> em atendimento / 2 -> finalizado / 3 -> cancelado
 }
 
-const servicoSchema = new mongoose.Schema<IServico>({
-  nome: { type: String, required: true },
-  descrição: { type: String, required: false },
-  valor: { type: Number, required: true },
-  tempoServico: { type: Number, required: false },
-  ativo: { type: Boolean, required: true },
-  funcionario: { type: mongoose.Types.ObjectId, ref: "funcionarios" },
-  cliente: { type: mongoose.Types.ObjectId, ref: "clientes" },
-  status: { type: Number, required: true },
-});
+const servicoSchema = new mongoose.Schema<IServico>(
+  {
+    nome: { type: String, required: true },
+    descricao: { type: String, required: false },
+    valor: { type: Number, required: true },
+    tempoServico: { type: Number, required: false },
+    ativo: { type: Boolean, required: true },
+    funcionario: { type: mongoose.Types.ObjectId, ref: "funcionarios" },
+    cliente: { type: mongoose.Types.ObjectId, ref: "clientes" },
+    status: { type: Number, required: true },
+  },
+  {
+    versionKey: false,
+  }
+);
 
 const Servico: Model<IServico> = mongoose.model<IServico>(
   "servicos",

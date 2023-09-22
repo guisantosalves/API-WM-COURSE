@@ -77,7 +77,7 @@ ClienteRouter.delete(
     if (deletedClient) {
       res.status(200).send(deletedClient);
     } else {
-      res.status(400);
+      res.sendStatus(400);
     }
   }
 );

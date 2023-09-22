@@ -41,7 +41,7 @@ FuncionarioRouter.get(
     if (fncFromDb) {
       res.status(200).send(fncFromDb);
     } else {
-      res.status(404);
+      res.sendStatus(404);
     }
   }
 );
@@ -76,7 +76,7 @@ FuncionarioRouter.delete(
     if (deletedClient) {
       res.status(200).send(deletedClient);
     } else {
-      res.status(400);
+      res.sendStatus(400);
     }
   }
 );
