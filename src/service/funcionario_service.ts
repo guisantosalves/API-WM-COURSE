@@ -15,6 +15,12 @@ export class FuncionarioService {
     funcionarioDTO: IFuncionario
   ): Promise<IFuncionario | undefined> {
     try {
+      const verifyingByEmail = await Funcionario.findOne({
+        email: funcionarioDTO.email,
+      });
+
+      if (verifyingByEmail) return undefined; // we cant have two same emails into the db
+
       const passHash = await bcrypt.hash(funcionarioDTO.senha, 10); // making the hash
 
       const funcionarioEntity = new Funcionario({
@@ -60,6 +66,13 @@ export class FuncionarioService {
     funcionarioDTO: IFuncionario
   ): Promise<IFuncionario | null | undefined> {
     try {
+      // verify email
+      const verifyingByEmail = await Funcionario.findOne({
+        email: funcionarioDTO.email,
+      });
+
+      if (verifyingByEmail) return undefined;
+
       if (funcionarioDTO.senha) {
         const changingPass = await bcrypt.hash(funcionarioDTO.senha, 10);
         funcionarioDTO.senha = changingPass; // overwrite the pass
