@@ -67,11 +67,15 @@ export class FuncionarioService {
   ): Promise<IFuncionario | null | undefined> {
     try {
       // verify email
-      const verifyingByEmail = await Funcionario.findOne({
-        email: funcionarioDTO.email,
-      });
+      if (funcionarioDTO.email) {
+        const verifyEmail = await Funcionario.findOne({
+          email: funcionarioDTO.email,
+        });
 
-      if (verifyingByEmail) return undefined;
+        if (verifyEmail?._id != id) {
+          return undefined; // exist in another doc
+        }
+      }
 
       if (funcionarioDTO.senha) {
         const changingPass = await bcrypt.hash(funcionarioDTO.senha, 10);
