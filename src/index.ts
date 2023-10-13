@@ -3,6 +3,7 @@ import express from "express";
 import routes from "./routes";
 import db from "./repository/db";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 //estabelecendo conexão com o mongodb
 db.on("error", () => console.log("error em estabelecer conexão"));
@@ -13,8 +14,16 @@ db.once("open", () => {
 // criando uma instância do express
 const app = express();
 
+// cookie parser
+app.use(cookieParser());
+
 // cors
-app.use(cors());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  app.use(cors());
+  next();
+});
 
 // definindo minhas rotas
 routes(app);

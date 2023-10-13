@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import Jwt from "jsonwebtoken";
+import * as cookieParser from "cookie-parser";
 
 export const authToken = (req: Request, res: Response, next: NextFunction) => {
   if (process.env.TOKEN_HEADER_KEY && process.env.JWT_SECRET_KEY) {
     // we need to do this because the headers send us back string | string[] | undefined
-    const token: string | undefined =
-      req.headers[process.env.TOKEN_HEADER_KEY]?.toString();
+    const token: string | undefined = req.cookies.token;
     const secretKey = process.env.JWT_SECRET_KEY;
 
     if (token) {
