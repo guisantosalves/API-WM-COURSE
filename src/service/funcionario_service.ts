@@ -55,6 +55,9 @@ export class FuncionarioService {
       const funcFromDbByid: IFuncionario | null = await Funcionario.findById(
         id
       );
+      if (funcFromDbByid && funcFromDbByid.senha) {
+        funcFromDbByid.senha = "";
+      }
       return funcFromDbByid;
     } catch (err) {
       console.log(err);

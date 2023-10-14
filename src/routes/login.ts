@@ -11,6 +11,9 @@ loginRouter.post("/login", async (req: Request, res: Response) => {
     if (logedData.token)
       res.cookie("token", logedData.token, {
         httpOnly: true,
+        secure: false,
+        expires: new Date(Date.now() * 2000),
+        maxAge: 18000,
       });
     res.status(200).send(logedData);
   } else {
