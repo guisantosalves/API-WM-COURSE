@@ -17,11 +17,11 @@ export interface IServico extends Document {
 
 const servicoSchema = new mongoose.Schema<IServico>(
   {
-    nome: { type: String, required: true },
-    descricao: { type: String, required: false },
-    valor: { type: Number, required: true },
-    tempoServico: { type: Number, required: false },
-    ativo: { type: Boolean, required: true },
+    nome: { type: String, required: true }, // ok
+    descricao: { type: String, required: false }, // ok
+    valor: { type: Number, required: true }, // ok
+    tempoServico: { type: Number, required: false }, // ok
+    ativo: { type: Boolean, required: true }, // pula
     funcionario: { type: mongoose.Types.ObjectId, ref: "funcionarios" },
     cliente: { type: mongoose.Types.ObjectId, ref: "clientes" },
     status: { type: Number, required: true },
