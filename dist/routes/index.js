@@ -7,10 +7,11 @@ const express_1 = __importDefault(require("express"));
 const clientes_1 = __importDefault(require("./clientes"));
 const funcionario_1 = __importDefault(require("./funcionario"));
 const servicos_1 = __importDefault(require("./servicos"));
+const login_1 = __importDefault(require("./login"));
 const routes = (app) => {
     app.route("/").get((req, res) => {
         res.status(200).json({ message: "That is the api for wm barros course" });
     });
-    app.use(express_1.default.json(), clientes_1.default, funcionario_1.default, servicos_1.default);
+    app.use(express_1.default.json(), clientes_1.default, funcionario_1.default, servicos_1.default, login_1.default);
 };
 exports.default = routes;

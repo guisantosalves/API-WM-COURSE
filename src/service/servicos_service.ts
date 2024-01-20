@@ -37,6 +37,8 @@ export class ServicoService {
     try {
       const foundFunc = await Funcionario.findById(serviceDTO.funcionario);
 
+      if (foundFunc && foundFunc.senha) foundFunc.senha = "";
+
       const foundClient = await Cliente.findById(serviceDTO.cliente);
 
       const serviceMapped = new Servico({
