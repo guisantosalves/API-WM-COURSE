@@ -9,7 +9,7 @@ export interface IServico extends Document {
   descricao?: string;
   valor: number;
   tempoServico?: number;
-  ativo: boolean;
+  ativo: boolean; // default true
   funcionario: typeof Funcionario | string;
   cliente: typeof Cliente | string;
   status: number; // 0 -> agendado / 1 -> em atendimento / 2 -> finalizado / 3 -> cancelado

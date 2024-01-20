@@ -5,6 +5,10 @@ export class FuncionarioService {
   static async getAllFunc(): Promise<IFuncionario[] | undefined> {
     try {
       const AllFunc: Array<IFuncionario> = await Funcionario.find({});
+      // iterar para retirar a senha
+      AllFunc.forEach((item, index)=>{
+        item.senha = '';
+      })
       return AllFunc;
     } catch (err) {
       console.log(err);
