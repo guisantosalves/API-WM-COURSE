@@ -1,0 +1,727 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3002",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cliente": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "summary": "creates a new cliente",
+        "consumes": ["application/json"],
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cliente",
+            "schema": {
+              "type": "object",
+              "required": ["nome", "dataNascimento", "rua", "bairro", "cep"],
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "dataNascimento": {
+                  "type": "string"
+                },
+                "rua": {
+                  "type": "string"
+                },
+                "obs": {
+                  "type": "string"
+                },
+                "bairro": {
+                  "type": "string"
+                },
+                "cep": {
+                  "type": "string"
+                },
+                "foto": {
+                  "type": "string"
+                },
+                "ativo": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/cliente/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "cliente",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "dataNascimento": {
+                  "type": "string"
+                },
+                "rua": {
+                  "type": "string"
+                },
+                "obs": {
+                  "type": "string"
+                },
+                "bairro": {
+                  "type": "string"
+                },
+                "cep": {
+                  "type": "string"
+                },
+                "foto": {
+                  "type": "string"
+                },
+                "ativo": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/funcionario": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "funcionario",
+            "schema": {
+              "type": "object",
+              "required": [
+                "nome",
+                "email",
+                "senha",
+                "dataNascimento",
+                "rua",
+                "bairro",
+                "cep",
+                "salario"
+              ],
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "senha": {
+                  "type": "string"
+                },
+                "dataNascimento": {
+                  "type": "string"
+                },
+                "dataAdmisao": {
+                  "type": "string"
+                },
+                "dataDemisao": {
+                  "type": "string"
+                },
+                "obsDemisao": {
+                  "type": "string"
+                },
+                "rua": {
+                  "type": "string"
+                },
+                "bairro": {
+                  "type": "string"
+                },
+                "cep": {
+                  "type": "string"
+                },
+                "foto": {
+                  "type": "string"
+                },
+                "ativo": {
+                  "type": "boolean"
+                },
+                "salario": {
+                  "type": "number"
+                },
+                "admin": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/funcionario/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "funcionario",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "senha": {
+                  "type": "string"
+                },
+                "dataNascimento": {
+                  "type": "string"
+                },
+                "dataAdmisao": {
+                  "type": "string"
+                },
+                "dataDemisao": {
+                  "type": "string"
+                },
+                "obsDemisao": {
+                  "type": "string"
+                },
+                "rua": {
+                  "type": "string"
+                },
+                "bairro": {
+                  "type": "string"
+                },
+                "cep": {
+                  "type": "string"
+                },
+                "foto": {
+                  "type": "string"
+                },
+                "ativo": {
+                  "type": "boolean"
+                },
+                "salario": {
+                  "type": "number"
+                },
+                "admin": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/servicos": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "servico",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "required": [
+                  "nome",
+                  "ativo",
+                  "funcionario",
+                  "cliente",
+                  "status"
+                ],
+                "nome": {
+                  "type": "string"
+                },
+                "descricao": {
+                  "type": "string"
+                },
+                "valor": {
+                  "type": "number"
+                },
+                "tempoServico": {
+                  "type": "number"
+                },
+                "ativo": {
+                  "type": "boolean"
+                },
+                "funcionario": {
+                  "type": "string"
+                },
+                "cliente": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/servicos/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "servico",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "required": [
+                  "nome",
+                  "ativo",
+                  "funcionario",
+                  "cliente",
+                  "status"
+                ],
+                "nome": {
+                  "type": "string"
+                },
+                "descricao": {
+                  "type": "string"
+                },
+                "valor": {
+                  "type": "number"
+                },
+                "tempoServico": {
+                  "type": "number"
+                },
+                "ativo": {
+                  "type": "boolean"
+                },
+                "funcionario": {
+                  "type": "string"
+                },
+                "cliente": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "authorization",
+            "description": "authorization header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Login",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "required": true
+                },
+                "senha": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}

@@ -50,6 +50,8 @@ class ServicoService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const foundFunc = yield funcionario_model_1.default.findById(serviceDTO.funcionario);
+                if (foundFunc && foundFunc.senha)
+                    foundFunc.senha = "";
                 const foundClient = yield cliente_model_1.default.findById(serviceDTO.cliente);
                 const serviceMapped = new servico_model_1.default({
                     nome: serviceDTO.nome,

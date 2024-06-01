@@ -20,6 +20,10 @@ class FuncionarioService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const AllFunc = yield funcionario_model_1.default.find({});
+                // iterar para retirar a senha
+                AllFunc.forEach((item, index) => {
+                    item.senha = '';
+                });
                 return AllFunc;
             }
             catch (err) {

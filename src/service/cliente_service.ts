@@ -51,6 +51,7 @@ export class ClientService {
     try {
       // updating
       const client = await Cliente.findByIdAndUpdate(id, clienteDTO);
+
       if (client) {
         // getting updated data
         const updatedClient = await Cliente.findById(id);
